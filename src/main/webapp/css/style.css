@@ -1,0 +1,52 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#020617;
+    color:white;
+}
+
+section{
+    padding:120px 0;
+}
+
+
+
+
+/* Hero Image Animation */
+
+@keyframes floatImage {
+
+    0% {
+
+        transform: translateY(0px);
+
+    }
+
+    50% {
+
+        transform: translateY(-12px);
+
+    }
+
+    100% {
+
+        transform: translateY(0px);
+
+    }
+
+}
+
+#home img {
+
+    animation: floatImage 4s ease-in-out infinite;
+
+}
