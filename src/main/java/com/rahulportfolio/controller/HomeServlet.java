@@ -12,22 +12,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/")
+@WebServlet("/home")
 public class HomeServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
-
     protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response)
+            HttpServletResponse response)
             throws ServletException, IOException {
 
-        ProjectDAO projectDAO = new ProjectDAO();
+        System.out.println(">>>>>>>> HOME SERVLET EXECUTED <<<<<<<<");
 
-        List<Project> projectList = projectDAO.getAllProjects();
+        ProjectDAO dao = new ProjectDAO();
 
-        request.setAttribute("projectList", projectList);
+        List<Project> list = dao.getAllProjects();
 
-        request.getRequestDispatcher("/index.jsp")
-               .forward(request, response);
+        System.out.println("Projects = " + list.size());
+
+        request.setAttribute("projectList", list);
+
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }

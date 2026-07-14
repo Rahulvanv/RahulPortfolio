@@ -51,5 +51,40 @@ public class ProjectDAO {
 
         return projectList;
     }
+    
+    public boolean saveProject(Project project) {
+
+        boolean status = false;
+
+        String sql = "INSERT INTO projects(title, description, technologies, github_link, live_demo_link, image_path) VALUES(?,?,?,?,?,?)";
+
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, project.getTitle());
+            ps.setString(2, project.getDescription());
+            ps.setString(3, project.getTechnologies());
+            ps.setString(4, project.getGithubLink());
+            ps.setString(5, project.getLiveDemoLink());
+            ps.setString(6, project.getImagePath());
+
+            int rows = ps.executeUpdate();
+
+            if (rows > 0) {
+                status = true;
+            }
+
+            ps.close();
+            con.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return status;
+    }
 
 }
