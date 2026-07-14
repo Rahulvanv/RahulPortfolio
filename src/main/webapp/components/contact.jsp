@@ -83,12 +83,12 @@
 
             <!-- Right -->
 
-            <form action="ContactServlet" method="post"
+            <form action="contact" method="post"
                   class="bg-slate-900 p-8 rounded-2xl border border-slate-700">
 
                 <input
                     type="text"
-                    name="name"
+                    name="fullName"
                     placeholder="Full Name"
                     required
                     class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 mb-5 outline-none">
