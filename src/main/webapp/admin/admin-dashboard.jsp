@@ -64,15 +64,13 @@ for(Project p:projectList){
 
 <td>
 
-<a href="../editProject?id=<%=p.getId()%>">Edit</a>
+<a href="<%=request.getContextPath()%>/editProject?id=<%=p.getId()%>">Edit</a>
 
 |
 
-<a href="../deleteProject?id=<%=p.getId()%>"
-onclick="return confirm('Delete this project?')">
-
-Delete
-
+<a href="<%=request.getContextPath()%>/deleteProject?id=<%=p.getId()%>"
+   onclick="return confirm('Delete this project?')">
+    Delete
 </a>
 
 </td>

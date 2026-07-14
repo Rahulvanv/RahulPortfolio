@@ -11,6 +11,7 @@ public class Project {
     private String imagePath;
 
     public Project() {
+
     }
 
     public Project(int id, String title, String description,
@@ -20,6 +21,20 @@ public class Project {
                    String imagePath) {
 
         this.id = id;
+        this.title = title;
+        this.description = description;
+        this.technologies = technologies;
+        this.githubLink = githubLink;
+        this.liveDemoLink = liveDemoLink;
+        this.imagePath = imagePath;
+    }
+
+    public Project(String title, String description,
+                   String technologies,
+                   String githubLink,
+                   String liveDemoLink,
+                   String imagePath) {
+
         this.title = title;
         this.description = description;
         this.technologies = technologies;

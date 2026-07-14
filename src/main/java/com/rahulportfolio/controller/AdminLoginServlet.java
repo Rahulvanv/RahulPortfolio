@@ -35,7 +35,7 @@ public class AdminLoginServlet extends HttpServlet {
 
             session.setAttribute("admin", admin);
 
-            response.sendRedirect("admin/admin-dashboard.jsp");
+            response.sendRedirect("adminDashboard");
 
         } else {
 

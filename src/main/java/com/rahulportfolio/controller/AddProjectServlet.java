@@ -32,12 +32,17 @@ public class AddProjectServlet extends HttpServlet {
 
         ProjectDAO dao = new ProjectDAO();
 
-        boolean status = dao.saveProject(project);
+        boolean status = dao.addProject(project);
+        if(status) {
 
-        if (status) {
-            response.sendRedirect("admin/admin-dashboard.jsp?success=true");
+            response.sendRedirect("adminDashboard");
+
         } else {
+
             response.sendRedirect("admin/add-project.jsp?success=false");
+
         }
+
     }
+
 }

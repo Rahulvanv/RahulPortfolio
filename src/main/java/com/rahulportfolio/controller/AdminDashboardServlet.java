@@ -13,14 +13,17 @@ import com.rahulportfolio.model.Project;
 @WebServlet("/adminDashboard")
 public class AdminDashboardServlet extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
+    @Override
     protected void doGet(HttpServletRequest request,
-            HttpServletResponse response)
+                         HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession(false);
 
-        if(session == null || session.getAttribute("admin") == null){
-            response.sendRedirect("adminDashboard");
+        if (session == null || session.getAttribute("admin") == null) {
+            response.sendRedirect("admin/admin-login.jsp");
             return;
         }
 
@@ -30,9 +33,7 @@ public class AdminDashboardServlet extends HttpServlet {
 
         request.setAttribute("projectList", projectList);
 
-        request.getRequestDispatcher("admin/admin-dashboard.jsp")
+        request.getRequestDispatcher("/admin/admin-dashboard.jsp")
                .forward(request, response);
-
     }
-
 }
