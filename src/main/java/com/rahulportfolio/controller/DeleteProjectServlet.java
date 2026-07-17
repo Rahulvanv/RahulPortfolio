@@ -32,7 +32,7 @@ public class DeleteProjectServlet extends HttpServlet {
         String idParam = request.getParameter("id");
 
         if (idParam == null || idParam.isEmpty()) {
-            response.sendRedirect("adminDashboard");
+            response.sendRedirect("projectDashboard");
             return;
         }
 
@@ -43,9 +43,9 @@ public class DeleteProjectServlet extends HttpServlet {
         boolean status = dao.deleteProject(id);
 
         if (status) {
-            response.sendRedirect("adminDashboard");
+            response.sendRedirect("projectDashboard");
         } else {
-            response.sendRedirect("adminDashboard");
+            response.sendRedirect("projectDashboard");
         }
     }
 }

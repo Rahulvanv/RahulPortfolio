@@ -1,138 +1,166 @@
+<%@ page import="com.rahulportfolio.model.Profile" %>
+
+<%
+Profile profile = (Profile) request.getAttribute("profile");
+%>
+
 <section id="home"
-    class="min-h-screen flex items-center bg-slate-950 pt-24">
+class="relative min-h-screen bg-slate-950 overflow-hidden">
 
-    <div class="max-w-7xl mx-auto px-6 w-full">
+<!-- Background Glow -->
 
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 blur-[140px] rounded-full"></div>
 
-            <!-- ================= LEFT CONTENT ================= -->
+<div class="absolute bottom-0 right-0 w-[450px] h-[450px] bg-cyan-400/10 blur-[160px] rounded-full"></div>
 
-            <div>
+<div class="relative max-w-7xl mx-auto px-6 pt-0 pb-16">
 
-                <!-- Greeting -->
+<div class="grid lg:grid-cols-2 gap-16 items-center">
 
-                <p
-                    class="text-cyan-400 text-lg font-semibold tracking-widest uppercase mb-4">
+<div>
 
-                    Hello, I'm
+<p class="text-cyan-400 uppercase tracking-[5px] font-semibold">
 
-                </p>
+Hello, I'm
 
-                <!-- Name -->
+</p>
 
-                <h1
-                    class="text-5xl md:text-7xl font-extrabold leading-tight">
+<h1 class="text-6xl lg:text-7xl font-black mt-3 leading-tight">
 
-                    Rahul
+<%=profile.getFullName()%>
 
-                    <span class="text-cyan-400">
+</h1>
 
-                        Vanve
+<h2 class="text-3xl mt-4 text-slate-300 font-semibold">
 
-                    </span>
+<%=profile.getProfession()%>
 
-                </h1>
+</h2>
 
-                <!-- Profession -->
 
-                <h2
-                    class="text-2xl md:text-3xl font-semibold text-slate-300 mt-5">
 
-                    Java Full Stack Developer
+<div class="flex gap-5 mt-10">
 
-                </h2>
+<a href="#projects"
+class="px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold transition">
 
-                <!-- Description -->
+View Projects
 
-                <p
-                    class="text-slate-400 mt-8 text-lg leading-8 max-w-xl">
+</a>
 
-                    Passionate Java developer focused on building modern,
-                    scalable and responsive web applications using
-                    <span class="text-cyan-400">Java</span>,
-                    <span class="text-cyan-400">JSP</span>,
-                    <span class="text-cyan-400">Servlet</span>,
-                    <span class="text-cyan-400">JDBC</span>,
-                    <span class="text-cyan-400">MySQL</span>,
-                    HTML, CSS, Tailwind CSS and JavaScript.
+<a href="uploads/<%=profile.getResume()%>"
+target="_blank"
+class="px-8 py-4 rounded-xl border border-cyan-400 hover:bg-cyan-400 hover:text-black transition">
 
-                </p>
+Resume
 
-                <!-- Buttons -->
+</a>
 
-                <div class="flex flex-wrap gap-5 mt-10">
+</div>
 
-                    <a href="#projects"
-                        class="bg-cyan-500 hover:bg-cyan-600 transition px-8 py-4 rounded-xl font-semibold">
+<!-- Contact Information -->
 
-                        View Projects
+<div class="mt-12">
 
-                    </a>
+    <div class="grid sm:grid-cols-2 gap-4 max-w-2xl">
 
-                    <a href="uploads/Rahul_Vanve_Resume.pdf"
-                        target="_blank"
-                        class="border border-cyan-400 hover:bg-cyan-400 hover:text-black transition px-8 py-4 rounded-xl font-semibold">
+        <!-- Email -->
 
-                        Download Resume
+        <div class="flex items-center gap-4 bg-slate-900 border border-slate-800 rounded-xl p-4 hover:border-cyan-400 transition">
 
-                    </a>
+            <div class="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center">
 
-                </div>
-
-                <!-- Tech Stack -->
-
-                <div class="flex flex-wrap gap-3 mt-12">
-
-                    <span
-                        class="px-5 py-2 rounded-full bg-slate-800 border border-slate-700">
-                        Java
-                    </span>
-
-                    <span
-                        class="px-5 py-2 rounded-full bg-slate-800 border border-slate-700">
-                        JSP
-                    </span>
-
-                    <span
-                        class="px-5 py-2 rounded-full bg-slate-800 border border-slate-700">
-                        Servlet
-                    </span>
-
-                    <span
-                        class="px-5 py-2 rounded-full bg-slate-800 border border-slate-700">
-                        JDBC
-                    </span>
-
-                    <span
-                        class="px-5 py-2 rounded-full bg-slate-800 border border-slate-700">
-                        MySQL
-                    </span>
-
-                </div>
+                <i class="fas fa-envelope text-cyan-400 text-xl"></i>
 
             </div>
 
-            <!-- ================= RIGHT CONTENT ================= -->
+            <div>
 
-            <div class="flex justify-center">
+                <p class="text-slate-400 text-sm">Email</p>
 
-                <div class="relative">
+                <p class="text-white text-sm break-all">
 
-                    <!-- Glow -->
+                    <%=profile.getEmail()%>
 
-                    <div
-                        class="absolute inset-0 rounded-full bg-cyan-500 blur-3xl opacity-20 scale-110">
+                </p>
 
-                    </div>
+            </div>
 
-                    <!-- Profile -->
+        </div>
 
-                    <img
-                        src="images/profile/my img.jpg"
-                        alt="Rahul Vanve"
-                        class="relative w-80 h-80 md:w-96 md:h-96 rounded-full border-4 border-cyan-400 object-cover shadow-2xl">
 
-                </div>
+
+        <!-- Phone -->
+
+        <div class="flex items-center gap-4 bg-slate-900 border border-slate-800 rounded-xl p-4 hover:border-cyan-400 transition">
+
+            <div class="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center">
+
+                <i class="fas fa-phone text-cyan-400 text-xl"></i>
+
+            </div>
+
+            <div>
+
+                <p class="text-slate-400 text-sm">Phone</p>
+
+                <p class="text-white">
+
+                    <%=profile.getPhone()%>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Location -->
+
+        <div class="flex items-center gap-4 bg-slate-900 border border-slate-800 rounded-xl p-4 hover:border-cyan-400 transition">
+
+            <div class="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center">
+
+                <i class="fas fa-location-dot text-cyan-400 text-xl"></i>
+
+            </div>
+
+            <div>
+
+                <p class="text-slate-400 text-sm">Location</p>
+
+                <p class="text-white">
+
+                    <%=profile.getCity()%>, <%=profile.getState()%>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Experience -->
+
+        <div class="flex items-center gap-4 bg-slate-900 border border-slate-800 rounded-xl p-4 hover:border-cyan-400 transition">
+
+            <div class="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center">
+
+                <i class="fas fa-briefcase text-cyan-400 text-xl"></i>
+
+            </div>
+
+            <div>
+
+                <p class="text-slate-400 text-sm">Experience</p>
+
+                <p class="text-white">
+
+                    <%=profile.getExperience()%>
+
+                </p>
 
             </div>
 
@@ -140,4 +168,30 @@
 
     </div>
 
-</section>
+</div>
+</div>
+
+<div class="flex justify-center">
+
+<div class="relative">
+
+<div class="absolute inset-0 rounded-full bg-cyan-500 blur-3xl opacity-30 animate-pulse"></div>
+
+<img
+src="images/profile/<%=profile.getPhoto()%>"
+alt="<%=profile.getFullName()%>"
+class="relative w-80 h-80 lg:w-[430px] lg:h-[430px]
+rounded-full object-cover
+border-[6px] border-cyan-400
+shadow-[0_0_70px_rgba(34,211,238,0.4)]">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+

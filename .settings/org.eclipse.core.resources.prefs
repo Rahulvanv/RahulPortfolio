@@ -1,4 +1,13 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/admin/admin-dashboard.jsp=UTF-8
+encoding//src/main/webapp/admin/admin-navbar.jsp=UTF-8
+encoding//src/main/webapp/admin/certificates.jsp=UTF-8
+encoding//src/main/webapp/admin/edit-experience.jsp=UTF-8
+encoding//src/main/webapp/admin/education.jsp=UTF-8
+encoding//src/main/webapp/admin/experience.jsp=UTF-8
+encoding//src/main/webapp/admin/profile.jsp=UTF-8
+encoding//src/main/webapp/admin/sidebar.jsp=UTF-8
+encoding//src/main/webapp/admin/skills.jsp=UTF-8
 encoding//src/main/webapp/components/footer.jsp=UTF-8
 encoding//src/main/webapp/components/navbar.jsp=UTF-8
 encoding/<project>=UTF-8

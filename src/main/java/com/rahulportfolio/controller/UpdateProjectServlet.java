@@ -58,7 +58,7 @@ public class UpdateProjectServlet extends HttpServlet {
 
         if (status) {
 
-            response.sendRedirect("adminDashboard");
+            response.sendRedirect("projectDashboard");
 
         } else {
 

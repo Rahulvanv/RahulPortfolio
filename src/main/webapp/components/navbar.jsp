@@ -1,3 +1,8 @@
+
+<%@ page import="com.rahulportfolio.model.Profile" %>
+<%
+Profile profile = (Profile) request.getAttribute("profile");
+%>
 <nav id="navbar"
      class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
 
@@ -19,7 +24,7 @@
 
                 <p class="text-[10px] uppercase tracking-[5px] text-slate-400">
 
-                    Java Developer
+                   <%= profile.getProfession() %>
 
                 </p>
 
@@ -70,13 +75,19 @@
 
             <div class="hidden lg:flex items-center gap-4">
 
-                <a href="uploads/resume.pdf"
-                   target="_blank"
-                   class="px-5 py-2 rounded-lg border border-cyan-400 hover:bg-cyan-400 hover:text-black transition">
+               <% if(profile != null &&
+      profile.getResume() != null &&
+      !profile.getResume().trim().isEmpty()){ %>
 
-                    Resume
+<a href="uploads/<%=profile.getResume()%>"
+   target="_blank"
+   class="px-5 py-2 rounded-lg border border-cyan-400 hover:bg-cyan-400 hover:text-black transition">
 
-                </a>
+    Resume
+
+</a>
+
+<% } %>
 
                 <a href="#contact"
                    class="px-5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 transition">

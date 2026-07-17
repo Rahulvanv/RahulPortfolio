@@ -1,6 +1,14 @@
 
+<%@ page import="java.util.List"%>
+<%@ page import="com.rahulportfolio.model.Education"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ page import="com.rahulportfolio.model.Profile" %>
+
+<%
+Profile profile = (Profile) request.getAttribute("profile");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,41 +38,34 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
+          
+          <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
 <body class="bg-slate-950 text-white font-[Poppins]">
 
-    <!-- ================= Navbar ================= -->
-    <%@ include file="components/navbar.jsp" %>
+<jsp:include page="components/navbar.jsp"/>
 
-    <!-- ================= Hero ================= -->
-    <%@ include file="components/hero.jsp" %>
+<jsp:include page="components/hero.jsp"/>
 
-    <!-- ================= About ================= -->
-    <%@ include file="components/about.jsp" %>
 
-    <!-- ================= Skills ================= -->
-    <%@ include file="components/skills.jsp" %>
+<jsp:include page="components/skills.jsp"/>
 
-    <!-- ================= Projects ================= -->
-   
-    <%@ include file="components/projects.jsp" %>
+<jsp:include page="components/projects.jsp"/>
 
-    <!-- ================= Experience ================= -->
-    <%@ include file="components/experience.jsp" %>
+<jsp:include page="components/experience.jsp"/>
 
-    <!-- ================= Education ================= -->
-    <%@ include file="components/education.jsp" %>
+<jsp:include page="components/education.jsp"/>
 
-    <!-- ================= Certifications ================= -->
-    <%@ include file="components/certifications.jsp" %>
+<jsp:include page="components/certifications.jsp"/>
 
-    <!-- ================= Contact ================= -->
-    <%@ include file="components/contact.jsp" %>
+<jsp:include page="components/contact.jsp"/>
 
-    <!-- ================= Footer ================= -->
-    <%@ include file="components/footer.jsp" %>
+<jsp:include page="components/footer.jsp"/>    
+    
+
     
 
     <!-- JavaScript -->
