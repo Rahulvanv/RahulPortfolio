@@ -39,9 +39,9 @@ public class AddSkillServlet extends HttpServlet {
         boolean status = dao.addSkill(skill);
 
         if (status) {
-        	response.sendRedirect("adminDashboard?page=skill");
+        	response.sendRedirect(request.getContextPath() + "/adminDashboard?pageName=skill");
         	} else {
-        		response.sendRedirect("adminDashboard?page=skill");
+        		response.sendRedirect(request.getContextPath() + "/adminDashboard?pageName=skill");
         }
     }
 }

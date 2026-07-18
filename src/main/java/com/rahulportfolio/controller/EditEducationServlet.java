@@ -37,7 +37,7 @@ public class EditEducationServlet extends HttpServlet {
         session.setAttribute("editEducation", education);
 
         response.sendRedirect(request.getContextPath()
-                + "/adminDashboard?page=education");
+                + "/adminDashboard?pageName=education");
     }
 
 }

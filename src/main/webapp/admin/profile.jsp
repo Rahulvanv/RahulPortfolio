@@ -15,6 +15,8 @@ if(profile == null){
 
     <h1 class="text-4xl font-bold">
 
+        <i class="fa-solid fa-user-gear text-cyan-400 mr-2"></i>
+
         Manage
 
         <span class="text-cyan-400">
@@ -52,6 +54,7 @@ class="grid md:grid-cols-2 gap-6">
 <label
 class="block mb-2 text-sm font-semibold">
 
+<i class="fa-solid fa-user text-cyan-400 mr-2"></i>
 Full Name
 
 </label>
@@ -70,6 +73,7 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 <label
 class="block mb-2 text-sm font-semibold">
 
+<i class="fa-solid fa-briefcase text-cyan-400 mr-2"></i>
 Profession
 
 </label>
@@ -90,6 +94,7 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 <label
 class="block mb-2 text-sm font-semibold">
 
+<i class="fa-solid fa-quote-left text-cyan-400 mr-2"></i>
 Tagline
 
 </label>
@@ -102,46 +107,6 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 
 </div>
 
-<!-- ==========================
-     About Section
-========================== -->
-
-<div>
-
-<label
-class="block mb-2 text-sm font-semibold">
-
-About Paragraph 1
-
-</label>
-
-<textarea
-name="about1"
-rows="5"
-class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4"><%=profile.getAbout1()==null?"":profile.getAbout1()%></textarea>
-
-</div>
-
-<div>
-
-<label
-class="block mb-2 text-sm font-semibold">
-
-About Paragraph 2
-
-</label>
-
-<textarea
-name="about2"
-rows="5"
-class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4"><%=profile.getAbout2()==null?"":profile.getAbout2()%></textarea>
-
-</div>
-
-<!-- ==========================
-     Contact Details
-========================== -->
-
 <div class="grid md:grid-cols-2 gap-6">
 
 <div>
@@ -149,6 +114,7 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4"><%=profile.ge
 <label
 class="block mb-2 text-sm font-semibold">
 
+<i class="fa-solid fa-envelope text-cyan-400 mr-2"></i>
 Email
 
 </label>
@@ -166,6 +132,7 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 <label
 class="block mb-2 text-sm font-semibold">
 
+<i class="fa-solid fa-phone text-cyan-400 mr-2"></i>
 Phone
 
 </label>
@@ -180,15 +147,12 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 
 </div>
 
-<!-- ==========================
-     Experience
-========================== -->
-
 <div>
 
 <label
 class="block mb-2 text-sm font-semibold">
 
+<i class="fa-solid fa-business-time text-cyan-400 mr-2"></i>
 Experience
 
 </label>
@@ -202,163 +166,131 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 
 </div>
 
-<!-- ==========================
-     Location
-========================== -->
-
 <div class="grid md:grid-cols-3 gap-6">
 
-    <div>
+<div>
 
-        <label class="block mb-2 text-sm font-semibold">
-            City
-        </label>
+<label class="block mb-2 text-sm font-semibold">
 
-        <input
-        type="text"
-        name="city"
-        value="<%=profile.getCity()==null?"":profile.getCity()%>"
-        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
+<i class="fa-solid fa-city text-cyan-400 mr-2"></i>
+City
 
-    </div>
+</label>
 
-    <div>
-
-        <label class="block mb-2 text-sm font-semibold">
-            State
-        </label>
-
-        <input
-        type="text"
-        name="state"
-        value="<%=profile.getState()==null?"":profile.getState()%>"
-        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
-
-    </div>
-
-    <div>
-
-        <label class="block mb-2 text-sm font-semibold">
-            Country
-        </label>
-
-        <input
-        type="text"
-        name="country"
-        value="<%=profile.getCountry()==null?"":profile.getCountry()%>"
-        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
-
-    </div>
+<input
+type="text"
+name="city"
+value="<%=profile.getCity()==null?"":profile.getCity()%>"
+class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 
 </div>
 
-<!-- ==========================
-     Social Profiles
-========================== -->
+<div>
+
+<label class="block mb-2 text-sm font-semibold">
+
+<i class="fa-solid fa-map text-cyan-400 mr-2"></i>
+State
+
+</label>
+
+<input
+type="text"
+name="state"
+value="<%=profile.getState()==null?"":profile.getState()%>"
+class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
+
+</div>
+
+<div>
+
+<label class="block mb-2 text-sm font-semibold">
+
+<i class="fa-solid fa-earth-asia text-cyan-400 mr-2"></i>
+Country
+
+</label>
+
+<input
+type="text"
+name="country"
+value="<%=profile.getCountry()==null?"":profile.getCountry()%>"
+class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
+
+</div>
+
+</div>
 
 <div class="grid md:grid-cols-2 gap-6">
 
-    <div>
+<div>
 
-        <label class="block mb-2 text-sm font-semibold">
-            GitHub URL
-        </label>
+<label class="block mb-2 text-sm font-semibold">
 
-        <input
-        type="url"
-        name="github"
-        value="<%=profile.getGithub()==null?"":profile.getGithub()%>"
-        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
+<i class="fa-brands fa-github text-cyan-400 mr-2"></i>
+GitHub URL
 
-    </div>
+</label>
 
-    <div>
-
-        <label class="block mb-2 text-sm font-semibold">
-            LinkedIn URL
-        </label>
-
-        <input
-        type="url"
-        name="linkedin"
-        value="<%=profile.getLinkedin()==null?"":profile.getLinkedin()%>"
-        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
-
-    </div>
-
-    <div>
-
-        <label class="block mb-2 text-sm font-semibold">
-            LeetCode URL
-        </label>
-
-        <input
-        type="url"
-        name="leetcode"
-        value="<%=profile.getLeetcode()==null?"":profile.getLeetcode()%>"
-        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
-
-    </div>
-
-    <div>
-
-        <label class="block mb-2 text-sm font-semibold">
-            HackerRank URL
-        </label>
-
-        <input
-        type="url"
-        name="hackerrank"
-        value="<%=profile.getHackerrank()==null?"":profile.getHackerrank()%>"
-        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
-
-    </div>
-
-   <div>
-
-    <label class="block mb-2 text-sm font-semibold">
-        Instagram URL
-    </label>
-
-    <input
-    type="url"
-    name="codechef"
-    placeholder="https://instagram.com/username"
-    value="<%=profile.getCodechef()==null?"":profile.getCodechef()%>"
-    class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
-
-</div>
-   <div>
-
-    <label class="block mb-2 text-sm font-semibold">
-        Leetcode URL
-    </label>
-
-    <input
-    type="text"
-    name="codeforces"
-    placeholder="919876543210"
-    value="<%=profile.getCodeforces()==null?"":profile.getCodeforces()%>"
-    class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
+<input
+type="url"
+name="github"
+value="<%=profile.getGithub()==null?"":profile.getGithub()%>"
+class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 
 </div>
 
-    <div class="md:col-span-2">
+<div>
 
-        <label class="block mb-2 text-sm font-semibold">
-            GeeksforGeeks URL
-        </label>
+<label class="block mb-2 text-sm font-semibold">
 
-        <input
-        type="url"
-        name="gfg"
-        value="<%=profile.getGfg()==null?"":profile.getGfg()%>"
-        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
+<i class="fa-brands fa-linkedin text-cyan-400 mr-2"></i>
+LinkedIn URL
 
-    </div>
+</label>
+
+<input
+type="url"
+name="linkedin"
+value="<%=profile.getLinkedin()==null?"":profile.getLinkedin()%>"
+class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 
 </div>
 
+<div>
+
+<label class="block mb-2 text-sm font-semibold">
+
+<i class="fa-solid fa-code text-cyan-400 mr-2"></i>
+LeetCode URL
+
+</label>
+
+<input
+type="url"
+name="leetcode"
+value="<%=profile.getLeetcode()==null?"":profile.getLeetcode()%>"
+class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
+
+</div>
+
+<div>
+
+<label class="block mb-2 text-sm font-semibold">
+
+<i class="fa-brands fa-instagram text-cyan-400 mr-2"></i>
+Instagram URL
+
+</label>
+
+<input
+type="url"
+name="codechef"
+placeholder="https://instagram.com/username"
+value="<%=profile.getCodechef()==null?"":profile.getCodechef()%>"
+class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
+
+</div>
 
 <!-- ==========================
      Upload Section
@@ -371,7 +303,10 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
     <div>
 
         <label class="block mb-2 text-sm font-semibold">
+
+            <i class="fa-solid fa-image text-cyan-400 mr-2"></i>
             Profile Photo
+
         </label>
 
         <input
@@ -387,7 +322,10 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
             <div class="mt-5">
 
                 <p class="text-cyan-400 text-sm mb-3">
+
+                    <i class="fa-solid fa-camera mr-2"></i>
                     Current Photo
+
                 </p>
 
                 <img
@@ -407,7 +345,10 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
     <div>
 
         <label class="block mb-2 text-sm font-semibold">
+
+            <i class="fa-solid fa-file-pdf text-cyan-400 mr-2"></i>
             Resume (PDF)
+
         </label>
 
         <input
@@ -424,6 +365,7 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 
                 <p class="text-cyan-400 text-sm">
 
+                    <i class="fa-solid fa-file-lines mr-2"></i>
                     Current Resume
 
                 </p>
@@ -452,13 +394,14 @@ class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4">
 
     <button
     type="submit"
-    class="bg-cyan-500 hover:bg-cyan-600 transition px-10 py-4 rounded-xl font-semibold">
+    class="bg-cyan-500 hover:bg-cyan-600 transition px-10 py-4 rounded-xl font-semibold flex items-center gap-2">
 
-        Save Profile
+        <i class="fa-solid fa-floppy-disk"></i>
+
+        <span>Save Profile</span>
 
     </button>
 
 </div>
 
 </form>
-

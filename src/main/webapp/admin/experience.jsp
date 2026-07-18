@@ -17,9 +17,11 @@ Experience editExperience =
 
 <div class="mb-10">
 
-    <h1 class="text-4xl font-bold">
-        Manage <span class="text-cyan-400">Experience</span>
-    </h1>
+    <h1 class="text-4xl font-bold flex items-center gap-2">
+    <i class="fa-solid fa-briefcase text-cyan-400"></i>
+    Manage
+    <span class="text-cyan-400">Experience</span>
+</h1>
 
     <p class="text-slate-400 mt-2">
         Add, update and manage your work experience.
@@ -36,11 +38,19 @@ Experience editExperience =
 <div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-12">
 
 
-<h2 class="text-2xl font-bold mb-8">
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
 
-<%=editExperience==null?
-"➕ Add New Experience":
-"✏ Edit Experience"%>
+<% if(editExperience==null){ %>
+
+<i class="fa-solid fa-circle-plus text-cyan-400"></i>
+<span>Add New Experience</span>
+
+<% }else{ %>
+
+<i class="fa-solid fa-pen-to-square text-yellow-400"></i>
+<span>Edit Experience</span>
+
+<% } %>
 
 </h2>
 
@@ -84,7 +94,8 @@ value="<%=editExperience.getId()%>"
 <div>
 
 <label class="block mb-2 text-slate-300">
-Company Name
+    <i class="fa-solid fa-building text-cyan-400 mr-2"></i>
+    Company Name
 </label>
 
 
@@ -109,7 +120,8 @@ class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-whi
 <div>
 
 <label class="block mb-2 text-slate-300">
-Job Role
+    <i class="fa-solid fa-user-tie text-cyan-400 mr-2"></i>
+    Job Role
 </label>
 
 
@@ -134,7 +146,8 @@ class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-whi
 <div>
 
 <label class="block mb-2 text-slate-300">
-Start Date
+    <i class="fa-solid fa-calendar-days text-cyan-400 mr-2"></i>
+    Start Date
 </label>
 
 
@@ -160,7 +173,8 @@ class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-whi
 <div>
 
 <label class="block mb-2 text-slate-300">
-End Date
+    <i class="fa-solid fa-calendar-check text-cyan-400 mr-2"></i>
+    End Date
 </label>
 
 
@@ -187,7 +201,8 @@ class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-whi
 
 
 <label class="block mb-2 text-slate-300">
-Description
+    <i class="fa-solid fa-align-left text-cyan-400 mr-2"></i>
+    Description
 </label>
 
 
@@ -219,15 +234,21 @@ editExperience.getDescription():""%></textarea>
 
 
 <button
-
 type="submit"
+class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-8 py-3 rounded-full flex items-center gap-2">
 
-class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-8 py-3 rounded-full">
 
+<% if(editExperience==null){ %>
 
-<%=editExperience==null?
-"Save Experience":
-"Update Experience"%>
+<i class="fa-solid fa-floppy-disk"></i>
+<span>Save Experience</span>
+
+<% }else{ %>
+
+<i class="fa-solid fa-pen"></i>
+<span>Update Experience</span>
+
+<% } %>
 
 
 </button>
@@ -249,7 +270,7 @@ href="<%=request.getContextPath()%>/experienceDashboard"
 
 class="bg-red-500 hover:bg-red-600 px-8 py-3 rounded-full">
 
-Cancel
+<i class="fa-solid fa-xmark mr-2"></i>Cancel
 
 </a>
 
@@ -285,8 +306,12 @@ Cancel
 <div class="bg-slate-900 border border-slate-700 rounded-2xl p-8">
 
 
-<h2 class="text-2xl font-bold mb-6">
-All Experience
+<h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+
+<i class="fa-solid fa-list-check text-cyan-400"></i>
+
+<span>All Experience</span>
+
 </h2>
 
 
@@ -306,34 +331,28 @@ All Experience
 
 
 <th class="p-4">
-ID
+<i class="fa-solid fa-hashtag mr-2"></i>ID
 </th>
-
 
 <th class="p-4">
-Company
+<i class="fa-solid fa-building mr-2"></i>Company
 </th>
-
 
 <th class="p-4">
-Role
+<i class="fa-solid fa-user-tie mr-2"></i>Role
 </th>
-
 
 <th class="p-4">
-Duration
+<i class="fa-solid fa-calendar-days mr-2"></i>Duration
 </th>
-
 
 <th class="p-4">
-Description
+<i class="fa-solid fa-align-left mr-2"></i>Description
 </th>
-
 
 <th class="p-4">
-Action
+<i class="fa-solid fa-gears mr-2"></i>Action
 </th>
-
 
 </tr>
 
@@ -404,12 +423,12 @@ for(Experience e : experienceList){
 
 
 <a
-
 href="<%=request.getContextPath()%>/editExperience?id=<%=e.getId()%>"
+class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg inline-flex items-center gap-2">
 
-class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
+<i class="fa-solid fa-pen-to-square"></i>
 
-Edit
+<span>Edit</span>
 
 </a>
 
@@ -418,14 +437,13 @@ Edit
 
 
 <a
-
 href="<%=request.getContextPath()%>/deleteExperience?id=<%=e.getId()%>"
-
 onclick="return confirm('Delete this experience?')"
+class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg ml-2 inline-flex items-center gap-2">
 
-class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg ml-2">
+<i class="fa-solid fa-trash"></i>
 
-Delete
+<span>Delete</span>
 
 </a>
 
@@ -454,6 +472,10 @@ Delete
 <td colspan="6"
 
 class="text-center py-8 text-slate-400">
+
+<i class="fa-solid fa-circle-info text-2xl mb-2"></i>
+
+<br>
 
 No Experience Found
 

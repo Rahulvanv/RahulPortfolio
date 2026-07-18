@@ -41,7 +41,8 @@ public class AddEducationServlet extends HttpServlet {
 
         dao.addEducation(education);
 
-        response.sendRedirect("adminDashboard?page=education");
+        response.sendRedirect(request.getContextPath()
+                + "/adminDashboard?pageName=education");
 
     }
 

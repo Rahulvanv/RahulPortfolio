@@ -18,7 +18,9 @@ Admin admin = (Admin)session.getAttribute("admin");
 
 if(admin == null){
 
-    response.sendRedirect("admin-login.jsp");
+    response.sendRedirect(
+    request.getContextPath()+"/admin/admin-login.jsp");
+
     return;
 
 }
@@ -74,6 +76,9 @@ Rahul Portfolio | Admin Dashboard
 
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 
 
 <style>
@@ -128,59 +133,40 @@ if(pageName == null){
 
 <!-- DASHBOARD HOME -->
 
+<div class="mb-10 flex items-center justify-between">
 
-<div class="mb-10">
+    <div>
 
+        <h1 class="text-4xl font-bold flex items-center gap-3">
 
-<h1 class="text-4xl font-bold">
+            <i class="fa-solid fa-user-shield text-cyan-400"></i>
 
-Welcome
+            Welcome
 
-<span class="text-cyan-400">
+            <span class="text-cyan-400">
+                <%=admin.getUsername()%>
+            </span>
 
-<%=admin.getUsername()%>
+            <i class="fa-solid fa-hand-sparkles text-yellow-400 text-3xl"></i>
 
-</span>
+        </h1>
 
-👋
+        <p class="text-slate-400 mt-3 flex items-center gap-2">
 
-</h1>
+            <i class="fa-solid fa-chart-line text-cyan-400"></i>
 
+            Here is your portfolio overview
 
+        </p>
 
-<p class="text-slate-400 mt-2">
+    </div>
 
-Here is your portfolio overview
+    <div
+        class="w-20 h-20 rounded-full bg-slate-900 border border-cyan-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
 
-</p>
+        <i class="fa-solid fa-user-gear text-4xl text-cyan-400"></i>
 
-
-</div>
-
-
-
-
-
-<div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-
-
-
-
-
-<div class="bg-slate-900 border border-slate-700 rounded-2xl p-6">
-
-<h3 class="text-slate-400">
-
-Projects
-
-</h3>
-
-
-<h1 class="text-4xl font-bold text-cyan-400 mt-3">
-
-<%=projectCount%>
-
-</h1>
+    </div>
 
 </div>
 
@@ -188,25 +174,36 @@ Projects
 
 
 
-
-<div class="bg-slate-900 border border-slate-700 rounded-2xl p-6">
-
-
-<h3 class="text-slate-400">
-
-Skills
-
-</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
 
 
-<h1 class="text-4xl font-bold text-cyan-400 mt-3">
-
-<%=skillCount%>
-
-</h1>
 
 
-</div>
+<a href="<%=request.getContextPath()%>/projectDashboard"
+class="bg-slate-900 border border-slate-700 rounded-2xl p-6 block hover:border-cyan-400 transition">
+
+
+    <div class="flex items-center justify-between">
+
+        <div>
+
+            <h3 class="text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-diagram-project text-cyan-400"></i>
+                Projects
+            </h3>
+
+            <h1 class="text-4xl font-bold text-cyan-400 mt-3">
+                <%=projectCount%>
+            </h1>
+
+        </div>
+
+        <i class="fa-solid fa-diagram-project text-5xl text-slate-700"></i>
+
+    </div>
+
+
+</a>
 
 
 
@@ -215,20 +212,24 @@ Skills
 
 <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6">
 
+    <div class="flex items-center justify-between">
 
-<h3 class="text-slate-400">
+        <div>
 
-Education
+            <h3 class="text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-code text-cyan-400"></i>
+                Skills
+            </h3>
 
-</h3>
+            <h1 class="text-4xl font-bold text-cyan-400 mt-3">
+                <%=skillCount%>
+            </h1>
 
+        </div>
 
-<h1 class="text-4xl font-bold text-cyan-400 mt-3">
+        <i class="fa-solid fa-code text-5xl text-slate-700"></i>
 
-<%=totalEducation%>
-
-</h1>
-
+    </div>
 
 </div>
 
@@ -239,11 +240,29 @@ Education
 
 <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6">
 
-<h3 class="text-slate-400">
+    <div class="flex items-center justify-between">
 
-Experience
+        <div>
 
-</h3>
+            <h3 class="text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-cyan-400"></i>
+                Education
+            </h3>
+
+            <h1 class="text-4xl font-bold text-cyan-400 mt-3">
+                <%=totalEducation%>
+            </h1>
+
+        </div>
+
+        <i class="fa-solid fa-graduation-cap text-5xl text-slate-700"></i>
+
+    </div>
+
+</div>
+
+
+
 
 <%
 Integer experienceCount =
@@ -254,12 +273,26 @@ if(experienceCount == null){
 }
 %>
 
-<h1 class="text-4xl font-bold text-cyan-400 mt-3">
+<div class="bg-slate-900 border border-slate-700 rounded-2xl p-6">
 
-<%=experienceCount%>
+    <div class="flex items-center justify-between">
 
-</h1>
+        <div>
 
+            <h3 class="text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-briefcase text-cyan-400"></i>
+                Experience
+            </h3>
+
+            <h1 class="text-4xl font-bold text-cyan-400 mt-3">
+                <%=experienceCount%>
+            </h1>
+
+        </div>
+
+        <i class="fa-solid fa-briefcase text-5xl text-slate-700"></i>
+
+    </div>
 
 </div>
 
@@ -278,23 +311,26 @@ if(certificateCount == null){
 
 <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6">
 
+    <div class="flex items-center justify-between">
 
-<h3 class="text-slate-400">
+        <div>
 
-Certificates
+            <h3 class="text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-award text-cyan-400"></i>
+                Certificates
+            </h3>
 
-</h3>
+            <h1 class="text-4xl font-bold text-cyan-400 mt-3">
+                <%=certificateCount%>
+            </h1>
 
+        </div>
 
-<h1 class="text-4xl font-bold text-cyan-400 mt-3">
+        <i class="fa-solid fa-award text-5xl text-slate-700"></i>
 
-<%=certificateCount%>
-
-</h1>
-
+    </div>
 
 </div>
-
 
 <%
 Integer messageCount =
@@ -309,23 +345,26 @@ if(messageCount == null){
 
 <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6">
 
+    <div class="flex items-center justify-between">
 
-<h3 class="text-slate-400">
+        <div>
 
-Messages
+            <h3 class="text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-cyan-400"></i>
+                Messages
+            </h3>
 
-</h3>
+            <h1 class="text-4xl font-bold text-cyan-400 mt-3">
+                <%=messageCount%>
+            </h1>
 
+        </div>
 
-<h1 class="text-4xl font-bold text-cyan-400 mt-3">
+        <i class="fa-solid fa-envelope text-5xl text-slate-700"></i>
 
-<%=messageCount%>
-
-</h1>
-
+    </div>
 
 </div>
-
 
 
 </div>
@@ -337,11 +376,11 @@ Messages
 
 }
 
-else if(pageName.equals("addProject")){
+else if(pageName.equals("project")){
 
 %>
 
-<%@ include file="project-form.jsp" %>
+<%@include file="project.jsp" %>
 
 
 <%
@@ -402,6 +441,16 @@ else if(pageName.equals("profile")){
 %>
 
 <%@ include file="profile.jsp" %>
+
+<%
+
+}
+
+else if(pageName.equals("settings")){
+
+%>
+
+<%@ include file="settings.jsp" %>
 
 <%
 

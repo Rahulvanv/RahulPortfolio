@@ -1,6 +1,7 @@
 package com.rahulportfolio.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,37 +23,41 @@ public class EditProjectServlet extends HttpServlet {
                          HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Check Admin Session
         HttpSession session = request.getSession(false);
 
         if (session == null || session.getAttribute("admin") == null) {
-            response.sendRedirect("admin/admin-login.jsp");
+
+            response.sendRedirect(
+                request.getContextPath() + "/admin/admin-login.jsp");
             return;
+
         }
 
-        // Get Project ID
         String idParam = request.getParameter("id");
 
         if (idParam == null || idParam.isEmpty()) {
-            response.sendRedirect("adminDashboard");
+
+            response.sendRedirect(
+                request.getContextPath() + "/projectDashboard");
             return;
+
         }
 
         int id = Integer.parseInt(idParam);
 
-        // Fetch Project
         ProjectDAO dao = new ProjectDAO();
+
         Project project = dao.getProjectById(id);
 
-        if (project == null) {
-            response.sendRedirect("adminDashboard");
-            return;
-        }
+        List<Project> projectList = dao.getAllProjects();
 
-        // Send project to JSP
-        request.setAttribute("project", project);
+        request.setAttribute("projectList", projectList);
+        request.setAttribute("editProject", project);
 
-        request.getRequestDispatcher("/admin/edit-project.jsp")
-               .forward(request, response);
+        request.getRequestDispatcher(
+                "/admin/admin-dashboard.jsp?pageName=project")
+                .forward(request, response);
+
     }
+
 }

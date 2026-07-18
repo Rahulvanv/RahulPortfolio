@@ -38,9 +38,9 @@ public class ContactServlet extends HttpServlet {
         boolean status = contactDAO.saveContact(contact);
 
         if (status) {
-            response.sendRedirect("index.jsp?success=true");
+            response.sendRedirect(request.getContextPath() + "/home?success=true");
         } else {
-            response.sendRedirect("index.jsp?success=false");
+            response.sendRedirect(request.getContextPath() + "/home?success=false");
         }
     }
 }

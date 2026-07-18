@@ -41,12 +41,7 @@ Profile profile = (Profile) request.getAttribute("profile");
                     </a>
                 </li>
 
-                <li>
-                    <a href="#about"
-                       class="hover:text-cyan-400 duration-300">
-                        About
-                    </a>
-                </li>
+               
 
                 <li>
                     <a href="#skills"
@@ -59,6 +54,20 @@ Profile profile = (Profile) request.getAttribute("profile");
                     <a href="#projects"
                        class="hover:text-cyan-400 duration-300">
                         Projects
+                    </a>
+                </li>
+                
+                 <li>
+                    <a href="#experience"
+                       class="hover:text-cyan-400 duration-300">
+                        Experience
+                    </a>
+                </li>
+                
+                 <li>
+                    <a href="#education"
+                       class="hover:text-cyan-400 duration-300">
+                        Education
                     </a>
                 </li>
 
@@ -118,12 +127,14 @@ Profile profile = (Profile) request.getAttribute("profile");
 
         <a href="#home" class="block px-6 py-4 hover:bg-slate-800">Home</a>
 
-        <a href="#about" class="block px-6 py-4 hover:bg-slate-800">About</a>
-
         <a href="#skills" class="block px-6 py-4 hover:bg-slate-800">Skills</a>
 
         <a href="#projects" class="block px-6 py-4 hover:bg-slate-800">Projects</a>
-
+        
+        <a href="#Experience" class="block px-6 py-4 hover:bg-slate-800">Experience</a>
+        
+        <a href="#Education" class="block px-6 py-4 hover:bg-slate-800">Education</a>
+        
         <a href="#contact" class="block px-6 py-4 hover:bg-slate-800">Contact</a>
 
     </div>

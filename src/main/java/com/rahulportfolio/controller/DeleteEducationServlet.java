@@ -34,8 +34,7 @@ public class DeleteEducationServlet extends HttpServlet {
         dao.deleteEducation(id);
 
         response.sendRedirect(request.getContextPath()
-                + "/adminDashboard?page=education");
-
+                + "/adminDashboard?pageName=education");
     }
 
 }

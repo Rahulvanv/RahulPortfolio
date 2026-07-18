@@ -32,7 +32,7 @@
 
         <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-700 rounded-3xl p-8 md:p-10 shadow-2xl hover:border-cyan-400 transition-all duration-500">
 
-            <form action="contact" method="post">
+            <form action="<%=request.getContextPath()%>/contact" method="post">
 
                 <div class="grid md:grid-cols-2 gap-6">
 

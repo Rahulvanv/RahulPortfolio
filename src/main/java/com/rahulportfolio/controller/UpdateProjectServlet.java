@@ -12,6 +12,13 @@ import javax.servlet.http.HttpSession;
 import com.rahulportfolio.dao.ProjectDAO;
 import com.rahulportfolio.model.Project;
 
+import java.io.File;
+
+import javax.servlet.http.Part;
+
+import javax.servlet.annotation.MultipartConfig;
+
+@MultipartConfig
 @WebServlet("/updateProject")
 public class UpdateProjectServlet extends HttpServlet {
 
@@ -38,7 +45,43 @@ public class UpdateProjectServlet extends HttpServlet {
         String technologies = request.getParameter("technologies");
         String githubLink = request.getParameter("githubLink");
         String liveDemoLink = request.getParameter("liveDemoLink");
-        String imagePath = request.getParameter("imagePath");
+        String imagePath=null;
+
+
+        Part filePart=request.getPart("projectImage");
+
+
+        if(filePart!=null 
+        && filePart.getSize()>0){
+
+
+        String fileName=filePart.getSubmittedFileName();
+
+
+        String uploadPath =
+        		getServletContext().getRealPath("/images/projects");
+
+
+        File dir=new File(uploadPath);
+
+
+        if(!dir.exists()){
+            dir.mkdir();
+        }
+
+
+        filePart.write(uploadPath+"/"+fileName);
+
+
+        imagePath="images/projects/"+fileName;
+
+
+        }
+        else{
+
+        imagePath=request.getParameter("oldImage");
+
+        }
 
         // Set Project Object
         Project project = new Project();
@@ -58,12 +101,15 @@ public class UpdateProjectServlet extends HttpServlet {
 
         if (status) {
 
-            response.sendRedirect("projectDashboard");
+        	response.sendRedirect(
+        			request.getContextPath()
+        			+"/projectDashboard");
 
         } else {
 
-            response.sendRedirect("editProject?id=" + id);
-
+        	response.sendRedirect(
+        			request.getContextPath()
+        			+"/editProject?id="+id);
         }
 
     }

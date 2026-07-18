@@ -47,8 +47,10 @@ public class ProjectDashboardServlet extends HttpServlet {
 
         // IMPORTANT CHANGE
 
+        request.setAttribute("projectList", list);
+
         request.getRequestDispatcher(
-        "/admin/admin-dashboard.jsp?page=project")
+        "/admin/admin-dashboard.jsp?pageName=project")
         .forward(request, response);
 
 

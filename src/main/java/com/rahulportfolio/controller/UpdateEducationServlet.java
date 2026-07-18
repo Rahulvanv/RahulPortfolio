@@ -42,7 +42,8 @@ public class UpdateEducationServlet extends HttpServlet {
 
         dao.updateEducation(education);
 
-        response.sendRedirect("adminDashboard?page=education");
+        response.sendRedirect(request.getContextPath()
+                + "/adminDashboard?pageName=education");
 
     }
 

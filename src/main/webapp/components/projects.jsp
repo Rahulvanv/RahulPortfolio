@@ -51,12 +51,10 @@ List<Project> projectList = (List<Project>) request.getAttribute("projectList");
 
             <div class="relative overflow-hidden">
 
-                <img
-                src="images/projects/<%=project.getImagePath()%>"
-                alt="<%=project.getTitle()%>"
-                class="w-full h-56 object-cover
-                       group-hover:scale-110
-                       transition duration-700">
+               <img
+src="<%=request.getContextPath()%>/<%=project.getImagePath()%>"
+alt="<%=project.getTitle()%>"
+class="w-full h-56 object-cover group-hover:scale-110 transition duration-700">
 
                 <!-- Overlay -->
 

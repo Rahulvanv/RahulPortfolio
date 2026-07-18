@@ -39,7 +39,7 @@ public class UpdateSkillServlet extends HttpServlet {
 
         dao.updateSkill(skill);
 
-        response.sendRedirect("adminDashboard?page=skill");
+        response.sendRedirect(request.getContextPath() + "/adminDashboard?pageName=skill");
 
     }
 

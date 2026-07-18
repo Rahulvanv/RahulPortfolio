@@ -33,11 +33,10 @@ public class EditSkillServlet extends HttpServlet {
 
         Skill skill = dao.getSkillById(id);
 
-        // Store edit object in session
         session.setAttribute("editSkill", skill);
 
-        // Redirect to dashboard servlet
-        response.sendRedirect(request.getContextPath() + "/adminDashboard?page=skill");
+        response.sendRedirect(request.getContextPath()
+                + "/adminDashboard?pageName=skill");
         
     }
 }
