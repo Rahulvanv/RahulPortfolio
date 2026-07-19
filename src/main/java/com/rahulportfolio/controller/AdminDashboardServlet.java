@@ -26,6 +26,9 @@ import com.rahulportfolio.model.Profile;
 
 import com.rahulportfolio.dao.ContactDAO;
 
+import com.rahulportfolio.dao.SettingsDAO;
+import com.rahulportfolio.model.Settings;
+
 @WebServlet("/adminDashboard")
 public class AdminDashboardServlet extends HttpServlet {
 
@@ -158,6 +161,15 @@ request.setAttribute("profile", profile);
 //Messages
 //==========================
 
+// settings 
+
+SettingsDAO settingsDAO = new SettingsDAO();
+
+Settings settings = settingsDAO.getSettings();
+
+request.setAttribute("settings", settings);
+
+// contacts 
 
 ContactDAO contactDAO = new ContactDAO();
 

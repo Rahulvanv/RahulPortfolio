@@ -49,8 +49,11 @@ if(educationList != null){
 }
 
 
-String pageName = request.getParameter("pageName");
+String pageName = (String) request.getAttribute("pageName");
 
+if(pageName == null){
+    pageName = request.getParameter("pageName");
+}
 
 %>
 

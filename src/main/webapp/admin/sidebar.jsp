@@ -144,7 +144,7 @@
 
 
         <!-- Settings -->
-<a href="<%=request.getContextPath()%>/settingsDashboard"
+<a href="<%=request.getContextPath()%>/adminDashboard?pageName=settings"
    class="flex items-center gap-4 px-4 py-3 rounded-xl
           text-slate-300 hover:bg-slate-800 hover:text-cyan-400 transition-all duration-300">
 

@@ -6,21 +6,16 @@ Settings settings = (Settings) request.getAttribute("settings");
 
 <div class="mb-10">
 
-    <h1 class="text-4xl font-bold flex items-center gap-2">
-
+    <h1 class="text-4xl font-bold flex items-center gap-3">
         <i class="fa-solid fa-gear text-cyan-400"></i>
-
-        Settings
-
+        Portfolio Settings
     </h1>
 
-    <p class="text-slate-400 mt-2"> 
-        Manage your portfolio settings.
+    <p class="text-slate-400 mt-2">
+        Manage your portfolio configuration from one place.
     </p>
 
 </div>
-
-<div class="bg-slate-900 border border-slate-700 rounded-2xl p-8">
 
 <form action="<%=request.getContextPath()%>/updateSettings"
       method="post">
@@ -29,173 +24,505 @@ Settings settings = (Settings) request.getAttribute("settings");
        name="id"
        value="<%=settings.getId()%>">
 
-<div class="grid md:grid-cols-2 gap-6">
+<!-- ========================= -->
+<!-- Portfolio Information -->
+<!-- ========================= -->
 
-    <!-- Site Title -->
+<div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
 
-    <div>
+    <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
 
-        <label class="block mb-2 text-slate-300">
+        <i class="fa-solid fa-globe text-cyan-400"></i>
 
-            <i class="fa-solid fa-globe text-cyan-400 mr-2"></i>
+        Portfolio Information
 
-            Site Title
+    </h2>
 
-        </label>
+    <div class="grid md:grid-cols-2 gap-6">
 
-        <input
-            type="text"
-            name="siteTitle"
-            value="<%=settings.getSiteTitle()%>"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+        <!-- Site Title -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Site Title
+
+            </label>
+
+            <input
+
+                type="text"
+
+                name="siteTitle"
+
+                value="<%=settings.getSiteTitle()%>"
+
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+        </div>
+
+        <!-- Tagline -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Tagline
+
+            </label>
+
+            <input
+
+                type="text"
+
+                name="tagline"
+
+                value="<%=settings.getTagline()%>"
+
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+        </div>
 
     </div>
 
-    <!-- Email -->
+    <!-- Description -->
 
-    <div>
+    <div class="mt-6">
 
         <label class="block mb-2 text-slate-300">
 
-            <i class="fa-solid fa-envelope text-cyan-400 mr-2"></i>
-
-            Email
+            Site Description
 
         </label>
 
-        <input
-            type="email"
-            name="primaryEmail"
-            value="<%=settings.getPrimaryEmail()%>"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+        <textarea
+
+            rows="5"
+
+            name="siteDescription"
+
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white"><%=settings.getSiteDescription()%></textarea>
 
     </div>
 
-    <!-- Phone -->
+    <!-- Footer -->
 
-    <div>
+    <div class="mt-6">
 
         <label class="block mb-2 text-slate-300">
 
-            <i class="fa-solid fa-phone text-cyan-400 mr-2"></i>
-
-            Phone
+            Footer Text
 
         </label>
 
         <input
+
             type="text"
-            name="phone"
-            value="<%=settings.getPhone()%>"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
 
-    </div>
+            name="footerText"
 
-    <!-- Location -->
+            value="<%=settings.getFooterText()%>"
 
-    <div>
-
-        <label class="block mb-2 text-slate-300">
-
-            <i class="fa-solid fa-location-dot text-cyan-400 mr-2"></i>
-
-            Location
-
-        </label>
-
-        <input
-            type="text"
-            name="location"
-            value="<%=settings.getLocation()%>"
             class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
 
     </div>
 
 </div>
 
-<!-- Description -->
+<!-- ========================= -->
+<!-- Personal Information -->
+<!-- ========================= -->
 
-<div class="mt-6">
+<div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
 
-    <label class="block mb-2 text-slate-300">
+    <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
 
-        <i class="fa-solid fa-align-left text-cyan-400 mr-2"></i>
+        <i class="fa-solid fa-user text-cyan-400"></i>
 
-        Site Description
+        Personal Information
 
-    </label>
+    </h2>
 
-    <textarea
-        rows="4"
-        name="siteDescription"
-        class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white"><%=settings.getSiteDescription()%></textarea>
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Full Name -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Full Name
+
+            </label>
+
+            <input
+
+                type="text"
+
+                name="fullName"
+
+                value="<%=settings.getFullName()%>"
+
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+        </div>
+
+        <!-- Profession -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Profession
+
+            </label>
+
+            <input
+
+                type="text"
+
+                name="profession"
+
+                value="<%=settings.getProfession()%>"
+
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+        </div>
+
+        <!-- Email -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Email
+
+            </label>
+
+            <input
+
+                type="email"
+
+                name="primaryEmail"
+
+                value="<%=settings.getPrimaryEmail()%>"
+
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+        </div>
+
+        <!-- Phone -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Phone
+
+            </label>
+
+            <input
+
+                type="text"
+
+                name="phone"
+
+                value="<%=settings.getPhone()%>"
+
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+        </div>
+
+        <!-- Location -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Location
+
+            </label>
+
+            <input
+
+                type="text"
+
+                name="location"
+
+                value="<%=settings.getLocation()%>"
+
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+        </div>
+
+        <!-- Resume URL -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Resume URL
+
+            </label>
+
+            <input
+
+                type="text"
+
+                name="resumeUrl"
+
+                value="<%=settings.getResumeUrl()%>"
+
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+        </div>
+
+    </div>
 
 </div>
 
-<!-- Theme -->
+<!-- ========================= -->
+<!-- SEO Settings -->
+<!-- ========================= -->
 
-<div class="mt-6">
+<div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
 
-<label class="block mb-2 text-slate-300">
+    <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
 
-<i class="fa-solid fa-palette text-cyan-400 mr-2"></i>
+        <i class="fa-solid fa-magnifying-glass text-cyan-400"></i>
 
-Theme
+        SEO Settings
 
-</label>
+    </h2>
 
-<select
-name="theme"
-class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+    <div class="grid md:grid-cols-2 gap-6">
 
-<option value="Dark"
-<%=settings.getTheme().equals("Dark")?"selected":""%>>
+        <!-- Meta Title -->
 
-Dark
+        <div>
 
-</option>
+            <label class="block mb-2 text-slate-300">
 
-<option value="Light"
-<%=settings.getTheme().equals("Light")?"selected":""%>>
+                Meta Title
 
-Light
+            </label>
 
-</option>
+            <input
+                type="text"
+                name="metaTitle"
+                value="<%=settings.getMetaTitle()%>"
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
 
-</select>
+        </div>
+
+        <!-- Theme -->
+
+        <div>
+
+            <label class="block mb-2 text-slate-300">
+
+                Theme
+
+            </label>
+
+            <select
+                name="theme"
+                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+                <option value="Dark"
+                    <%= "Dark".equals(settings.getTheme()) ? "selected" : "" %>>
+                    Dark
+                </option>
+
+                <option value="Light"
+                    <%= "Light".equals(settings.getTheme()) ? "selected" : "" %>>
+                    Light
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <!-- Meta Description -->
+
+    <div class="mt-6">
+
+        <label class="block mb-2 text-slate-300">
+
+            Meta Description
+
+        </label>
+
+        <textarea
+            rows="4"
+            name="metaDescription"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white"><%=settings.getMetaDescription()%></textarea>
+
+    </div>
+
+    <!-- Meta Keywords -->
+
+    <div class="mt-6">
+
+        <label class="block mb-2 text-slate-300">
+
+            Meta Keywords
+
+        </label>
+
+        <textarea
+            rows="3"
+            name="metaKeywords"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white"><%=settings.getMetaKeywords()%></textarea>
+
+    </div>
 
 </div>
 
+<!-- ========================= -->
+<!-- Portfolio Visibility -->
+<!-- ========================= -->
+
+<div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
+
+    <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+
+        <i class="fa-solid fa-eye text-cyan-400"></i>
+
+        Portfolio Visibility
+
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-5">
+
+        <label class="flex items-center gap-3">
+            <input type="checkbox"
+                   name="showHero"
+                   class="accent-cyan-400 w-5 h-5"
+                   <%= settings.isShowHero() ? "checked" : "" %>>
+            Hero Section
+        </label>
+
+        <label class="flex items-center gap-3">
+            <input type="checkbox"
+                   name="showAbout"
+                   class="accent-cyan-400 w-5 h-5"
+                   <%= settings.isShowAbout() ? "checked" : "" %>>
+            About Section
+        </label>
+
+        <label class="flex items-center gap-3">
+            <input type="checkbox"
+                   name="showSkills"
+                   class="accent-cyan-400 w-5 h-5"
+                   <%= settings.isShowSkills() ? "checked" : "" %>>
+            Skills Section
+        </label>
+
+        <label class="flex items-center gap-3">
+            <input type="checkbox"
+                   name="showProjects"
+                   class="accent-cyan-400 w-5 h-5"
+                   <%= settings.isShowProjects() ? "checked" : "" %>>
+            Projects Section
+        </label>
+
+        <label class="flex items-center gap-3">
+            <input type="checkbox"
+                   name="showExperience"
+                   class="accent-cyan-400 w-5 h-5"
+                   <%= settings.isShowExperience() ? "checked" : "" %>>
+            Experience Section
+        </label>
+
+        <label class="flex items-center gap-3">
+            <input type="checkbox"
+                   name="showEducation"
+                   class="accent-cyan-400 w-5 h-5"
+                   <%= settings.isShowEducation() ? "checked" : "" %>>
+            Education Section
+        </label>
+
+        <label class="flex items-center gap-3">
+            <input type="checkbox"
+                   name="showCertificates"
+                   class="accent-cyan-400 w-5 h-5"
+                   <%= settings.isShowCertificates() ? "checked" : "" %>>
+            Certificates Section
+        </label>
+
+        <label class="flex items-center gap-3">
+            <input type="checkbox"
+                   name="showContact"
+                   class="accent-cyan-400 w-5 h-5"
+                   <%= settings.isShowContact() ? "checked" : "" %>>
+            Contact Section
+        </label>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
 <!-- Maintenance -->
+<!-- ========================= -->
 
-<div class="mt-8 flex items-center gap-3">
+<div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
 
-<input
-type="checkbox"
-name="maintenanceMode"
+    <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
 
-<%=settings.isMaintenanceMode()?"checked":""%>
+        <i class="fa-solid fa-screwdriver-wrench text-cyan-400"></i>
 
-class="w-5 h-5 accent-cyan-400">
+        Maintenance
 
-<label>
+    </h2>
 
-Enable Maintenance Mode
+    <div class="flex items-center gap-4">
 
-</label>
+        <input
+            type="checkbox"
+            id="maintenanceMode"
+            name="maintenanceMode"
+            class="w-5 h-5 accent-cyan-400"
+            <%= settings.isMaintenanceMode() ? "checked" : "" %>>
+
+        <label for="maintenanceMode"
+               class="text-slate-300 text-lg">
+
+            Enable Maintenance Mode
+
+        </label>
+
+    </div>
+
+    <p class="text-slate-500 text-sm mt-3">
+
+        When enabled, visitors will see a maintenance page instead of your portfolio.
+
+    </p>
 
 </div>
 
-<button
-type="submit"
-class="mt-8 bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-3 rounded-full font-semibold">
+<!-- ========================= -->
+<!-- Save Button -->
+<!-- ========================= -->
 
-<i class="fa-solid fa-floppy-disk mr-2"></i>
+<div class="flex justify-end">
 
-Save Settings
+    <button
+        type="submit"
+        class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-8 py-3 rounded-xl transition duration-300 shadow-lg">
 
-</button>
+        <i class="fa-solid fa-floppy-disk mr-2"></i>
+
+        Save Settings
+
+    </button>
+
+</div>
 
 </form>
 
-</div>
