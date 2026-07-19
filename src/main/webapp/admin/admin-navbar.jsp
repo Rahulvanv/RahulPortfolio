@@ -8,6 +8,14 @@ Admin navbarAdmin = (Admin) session.getAttribute("admin");
 if (navbarAdmin != null) {
     username = navbarAdmin.getUsername();
 }
+
+
+Integer navMessageCount =
+(Integer)request.getAttribute("messageCount");
+
+if(navMessageCount == null){
+    navMessageCount = 0;
+}
 %>
 
 <!-- ================= Admin Navbar ================= -->
@@ -45,15 +53,15 @@ if (navbarAdmin != null) {
             <i class="fa-solid fa-bell text-lg"></i>
 
             <span
-                class="absolute -top-1 -right-1
-                       bg-red-500 text-white
-                       text-[10px] font-bold
-                       w-5 h-5 rounded-full
-                       flex items-center justify-center">
+    class="absolute -top-1 -right-1
+           bg-red-500 text-white
+           text-[10px] font-bold
+           min-w-[20px] h-5 px-1 rounded-full
+           flex items-center justify-center">
 
-                0
+   <%= navMessageCount %>
 
-            </span>
+</span>
 
         </button>
 

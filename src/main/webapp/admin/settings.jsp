@@ -1,7 +1,12 @@
 <%@ page import="com.rahulportfolio.model.Settings"%>
+<%@ page import="com.rahulportfolio.model.Admin"%>
 
 <%
-Settings settings = (Settings) request.getAttribute("settings");
+Settings settings =
+(Settings) request.getAttribute("settings");
+
+Admin loginAdmin =
+(Admin) session.getAttribute("admin");
 %>
 
 <div class="mb-10">
@@ -40,71 +45,7 @@ Settings settings = (Settings) request.getAttribute("settings");
 
     <div class="grid md:grid-cols-2 gap-6">
 
-        <!-- Site Title -->
 
-        <div>
-
-            <label class="block mb-2 text-slate-300">
-
-                Site Title
-
-            </label>
-
-            <input
-
-                type="text"
-
-                name="siteTitle"
-
-                value="<%=settings.getSiteTitle()%>"
-
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
-
-        </div>
-
-        <!-- Tagline -->
-
-        <div>
-
-            <label class="block mb-2 text-slate-300">
-
-                Tagline
-
-            </label>
-
-            <input
-
-                type="text"
-
-                name="tagline"
-
-                value="<%=settings.getTagline()%>"
-
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
-
-        </div>
-
-    </div>
-
-    <!-- Description -->
-
-    <div class="mt-6">
-
-        <label class="block mb-2 text-slate-300">
-
-            Site Description
-
-        </label>
-
-        <textarea
-
-            rows="5"
-
-            name="siteDescription"
-
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white"><%=settings.getSiteDescription()%></textarea>
-
-    </div>
 
     <!-- Footer -->
 
@@ -128,159 +69,164 @@ Settings settings = (Settings) request.getAttribute("settings");
 
     </div>
 
-</div>
+</div><br><br>
 
 <!-- ========================= -->
-<!-- Personal Information -->
+<!-- Branding Settings -->
 <!-- ========================= -->
 
 <div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
 
     <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
 
-        <i class="fa-solid fa-user text-cyan-400"></i>
+        <i class="fa-solid fa-image text-cyan-400"></i>
 
-        Personal Information
+        Branding Settings
 
     </h2>
 
+
     <div class="grid md:grid-cols-2 gap-6">
 
-        <!-- Full Name -->
+
+        <!-- Logo Text -->
 
         <div>
 
             <label class="block mb-2 text-slate-300">
 
-                Full Name
+                Logo Text
 
             </label>
 
-            <input
-
-                type="text"
-
-                name="fullName"
-
-                value="<%=settings.getFullName()%>"
-
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
-
-        </div>
-
-        <!-- Profession -->
-
-        <div>
-
-            <label class="block mb-2 text-slate-300">
-
-                Profession
-
-            </label>
 
             <input
 
-                type="text"
+            type="text"
 
-                name="profession"
+            name="logoText"
 
-                value="<%=settings.getProfession()%>"
+            value="<%=settings.getLogoText()%>"
 
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+            placeholder="RahulPortfolio"
 
-        </div>
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
 
-        <!-- Email -->
-
-        <div>
-
-            <label class="block mb-2 text-slate-300">
-
-                Email
-
-            </label>
-
-            <input
-
-                type="email"
-
-                name="primaryEmail"
-
-                value="<%=settings.getPrimaryEmail()%>"
-
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
 
         </div>
 
-        <!-- Phone -->
 
-        <div>
 
-            <label class="block mb-2 text-slate-300">
-
-                Phone
-
-            </label>
-
-            <input
-
-                type="text"
-
-                name="phone"
-
-                value="<%=settings.getPhone()%>"
-
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
-
-        </div>
-
-        <!-- Location -->
-
-        <div>
-
-            <label class="block mb-2 text-slate-300">
-
-                Location
-
-            </label>
-
-            <input
-
-                type="text"
-
-                name="location"
-
-                value="<%=settings.getLocation()%>"
-
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
-
-        </div>
-
-        <!-- Resume URL -->
-
-        <div>
-
-            <label class="block mb-2 text-slate-300">
-
-                Resume URL
-
-            </label>
-
-            <input
-
-                type="text"
-
-                name="resumeUrl"
-
-                value="<%=settings.getResumeUrl()%>"
-
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
-
-        </div>
 
     </div>
 
+
 </div>
+
+
+
+
+
+<!-- ========================= -->
+<!-- Admin Account Settings -->
+<!-- ========================= -->
+
+
+<!-- ========================= -->
+<!-- Admin Account Settings -->
+<!-- ========================= -->
+
+
+<div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
+
+
+<h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+
+<i class="fa-solid fa-user-shield text-cyan-400"></i>
+
+Admin Account
+
+</h2>
+
+
+
+<div class="grid md:grid-cols-2 gap-6">
+
+
+
+<!-- Username -->
+
+<div>
+
+
+<label class="block mb-2 text-slate-300">
+
+Username
+
+</label>
+
+
+<input
+
+type="text"
+
+name="adminUsername"
+
+value="<%=loginAdmin.getUsername()%>"
+class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+
+</div>
+
+
+
+
+
+<!-- Password -->
+
+
+<div>
+
+
+<label class="block mb-2 text-slate-300">
+
+New Password
+
+</label>
+
+
+
+<input
+
+type="password"
+
+name="adminPassword"
+
+placeholder="Enter new password"
+
+class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+
+
+</div>
+
+
+
+</div>
+
+
+
+<p class="text-slate-500 text-sm mt-4">
+
+Leave password empty if you don't want to change it.
+
+</p>
+
+
+
+</div>
+<!-- ========================= -->
+<!-- Personal Information -->
+<!-- ========================= -->
 
 <!-- ========================= -->
 <!-- SEO Settings -->
@@ -406,13 +352,7 @@ Settings settings = (Settings) request.getAttribute("settings");
             Hero Section
         </label>
 
-        <label class="flex items-center gap-3">
-            <input type="checkbox"
-                   name="showAbout"
-                   class="accent-cyan-400 w-5 h-5"
-                   <%= settings.isShowAbout() ? "checked" : "" %>>
-            About Section
-        </label>
+       
 
         <label class="flex items-center gap-3">
             <input type="checkbox"

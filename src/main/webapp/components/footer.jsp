@@ -1,7 +1,11 @@
 <%@ page import="com.rahulportfolio.model.Profile" %>
+<%@ page import="com.rahulportfolio.model.Settings" %>
 
 <%
 Profile profile = (Profile)request.getAttribute("profile");
+
+Settings settings =
+(Settings)request.getAttribute("settings");
 %>
 
 <footer class="bg-slate-950 border-t border-slate-800 relative overflow-hidden">
@@ -207,15 +211,18 @@ Profile profile = (Profile)request.getAttribute("profile");
 
             <p class="text-slate-500 text-center">
 
-                © 2026
+                 Made with &#10084;&#65039; and endless coffee. &copy; 2026
                 <span class="text-cyan-400 font-semibold">
 
-                    <%=profile.getFullName()%>
+                   
+                    <%=settings.getFooterText()%>. 
 
                 </span>.
                 All Rights Reserved.
-
+                
+       
             </p>
+            
 
             <a href="#home"
                class="w-11 h-11 rounded-full bg-cyan-500 text-black flex items-center justify-center hover:scale-110 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition">

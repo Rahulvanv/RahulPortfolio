@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.rahulportfolio.model.Project" %>
-<%@ page import="com.rahulportfolio.model.Admin" %>
 <%@ page import="com.rahulportfolio.model.Education" %>
+<%@ page import="com.rahulportfolio.model.Admin" %>
 
 
 <%
@@ -13,13 +13,15 @@ if(skillCount == null){
 }
 
 
-Admin admin = (Admin)session.getAttribute("admin");
+Admin admin =
+(Admin)session.getAttribute("admin");
 
 
 if(admin == null){
 
     response.sendRedirect(
-    request.getContextPath()+"/admin/admin-login.jsp");
+    request.getContextPath()+"/admin/admin-login.jsp"
+    );
 
     return;
 

@@ -26,6 +26,11 @@ import com.rahulportfolio.model.Certificate;
 import com.rahulportfolio.model.Profile;
 import com.rahulportfolio.dao.ProfileDAO;
 
+import com.rahulportfolio.dao.SettingsDAO;
+import com.rahulportfolio.model.Settings;
+
+
+
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
 
@@ -74,12 +79,22 @@ public class HomeServlet extends HttpServlet {
         // certificate 
         
         Profile profile = new ProfileDAO().getProfile();
+        
+     // Settings
 
-      
+        SettingsDAO settingsDAO = new SettingsDAO();
 
-        
-        
-        
+        Settings settings = settingsDAO.getSettings();
+
+
+        if(settings == null) {
+
+            settings = new Settings();
+
+            settings.setLogoText("RahulPortfolio");
+            settings.setTheme("Dark");
+
+        }
 
         System.out.println("Projects = " + projectList.size());
         System.out.println("Skills = " + skillList.size());
@@ -91,6 +106,7 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("skillList", skillList);
         request.setAttribute("educationList", educationList);
         request.setAttribute("experienceList",experienceList);
+        request.setAttribute("settings", settings);
 
         request.getRequestDispatcher("/index.jsp")
                .forward(request, response);

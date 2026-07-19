@@ -401,40 +401,30 @@ class="w-20 h-20 rounded-xl object-cover">
 
 <td class="p-4">
 
+    <div class="flex items-center gap-3">
 
-<a
+        <a
+            href="<%=request.getContextPath()%>/editProject?id=<%=p.getId()%>"
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
 
-href="<%=request.getContextPath()%>/editProject?id=<%=p.getId()%>"
+            <i class="fa-solid fa-pen"></i>
+            <span>Edit</span>
 
-class="bg-green-500 px-4 py-2 rounded-lg">
+        </a>
 
-<i class="fa-solid fa-pen"></i>
+        <a
+            href="<%=request.getContextPath()%>/deleteProject?id=<%=p.getId()%>"
+            onclick="return confirm('Delete Project?')"
+            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
 
-Edit
+            <i class="fa-solid fa-trash"></i>
+            <span>Delete</span>
 
-</a>
+        </a>
 
-
-
-<a
-
-href="<%=request.getContextPath()%>/deleteProject?id=<%=p.getId()%>"
-
-onclick="return confirm('Delete Project?')"
-
-class="bg-red-500 px-4 py-2 rounded-lg ml-2">
-
-
-<i class="fa-solid fa-trash"></i>
-
-Delete
-
-
-</a>
-
+    </div>
 
 </td>
-
 
 
 </tr>

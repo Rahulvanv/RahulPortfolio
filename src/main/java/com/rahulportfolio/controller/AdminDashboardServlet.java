@@ -29,6 +29,9 @@ import com.rahulportfolio.dao.ContactDAO;
 import com.rahulportfolio.dao.SettingsDAO;
 import com.rahulportfolio.model.Settings;
 
+import com.rahulportfolio.dao.AdminDAO;
+import com.rahulportfolio.model.Admin;
+
 @WebServlet("/adminDashboard")
 public class AdminDashboardServlet extends HttpServlet {
 
@@ -160,6 +163,19 @@ request.setAttribute("profile", profile);
 //==========================
 //Messages
 //==========================
+
+//==========================
+//Admin Account
+//==========================
+
+AdminDAO adminDAO = new AdminDAO();
+
+Admin admin = adminDAO.getAdmin();
+
+request.setAttribute(
+     "adminData",
+     admin
+);
 
 // settings 
 

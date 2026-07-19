@@ -1,7 +1,12 @@
-
 <%@ page import="com.rahulportfolio.model.Profile" %>
+<%@ page import="com.rahulportfolio.model.Settings" %>
+
+
 <%
 Profile profile = (Profile) request.getAttribute("profile");
+
+Settings settings = 
+(Settings) request.getAttribute("settings");
 %>
 <nav id="navbar"
      class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
@@ -14,17 +19,25 @@ Profile profile = (Profile) request.getAttribute("profile");
 
             <a href="#home" class="group">
 
-                <h1 class="text-3xl font-bold tracking-wider">
 
-                    <span class="text-cyan-400 group-hover:text-cyan-300 duration-300">
-                        RV
-                    </span>
+<h1 class="text-3xl font-bold tracking-wider">
 
-                </h1>
+<span class="text-cyan-400 group-hover:text-cyan-300 duration-300">
+
+<%= settings != null && settings.getLogoText()!=null 
+    ? settings.getLogoText() 
+    : "RahulPortfolio" %>
+
+</span>
+
+</h1>
+
+
+
 
                 <p class="text-[10px] uppercase tracking-[5px] text-slate-400">
 
-                   <%= profile.getProfession() %>
+                  <%= profile != null ? profile.getProfession() : "" %>
 
                 </p>
 
@@ -96,7 +109,9 @@ Profile profile = (Profile) request.getAttribute("profile");
 
 </a>
 
-<% } %>
+<% 
+} 
+%>
 
                 <a href="#contact"
                    class="px-5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 transition">

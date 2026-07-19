@@ -7,7 +7,7 @@
     <div class="mb-10">
 
         <h1 class="text-3xl font-bold text-white">
-            Rahul<span class="text-cyan-400">.</span>
+            <span class="text-cyan-400">Rahul.</span>
         </h1>
 
         <p class="text-slate-400 text-sm mt-2">
